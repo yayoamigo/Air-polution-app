@@ -1,21 +1,45 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const initialState = { countries:[], isLoading: true, }
+const initialState = { countries:[], isLoading: true, selectedContinent: 'Africa', }
 
-const countryName = [
-  "Afghanistan", "Algeria", "Angola", "Benin", "Botswana", // Africa
-  "Albania", "Armenia", "Azerbaijan", "Bahrain", "Belarus", // Europe
-  "Argentina", "Bolivia", "Brazil", "Ecuador", "Colombia", // South America
-  "Australia", "Brunei", "Cambodia", "Indonesia", "Laos", // Asia
-  "Canada", "Cuba", "Mexico", "United States", "Haiti", // North America
-  "Fiji", "Kiribati", "Marshall Islands", "Nauru", "Papua New Guinea" // Oceania
-  ]
+const countryData = [
+  { name: "Afghanistan", continent: "Africa" },
+  { name: "Algeria", continent: "Africa" },
+  { name: "Angola", continent: "Africa" },
+  { name: "Benin", continent: "Africa" },
+  { name: "Botswana", continent: "Africa" },
+  { name: "Albania", continent: "Europe" },
+  { name: "Armenia", continent: "Europe" },
+  { name: "Azerbaijan", continent: "Europe" },
+  { name: "Bahrain", continent: "Europe" },
+  { name: "Belarus", continent: "Europe" },
+  { name: "Argentina", continent: "South America" },
+  { name: "Bolivia", continent: "South America" },
+  { name: "Brazil", continent: "South America" },
+  { name: "Ecuador", continent: "South America" },
+  { name: "Colombia", continent: "South America" },
+  { name: "Lebanon", continent: "Asia" },
+  { name: "Brunei", continent: "Asia" },
+  { name: "Cambodia", continent: "Asia" },
+  { name: "Indonesia", continent: "Asia" },
+  { name: "Laos", continent: "Asia" },
+  { name: "Canada", continent: "North America" },
+  { name: "Cuba", continent: "North America" },
+  { name: "Mexico", continent: "North America" },
+  { name: "United States", continent: "North America" },
+  { name: "Haiti", continent: "North America" },
+  { name: "Fiji", continent: "Oceania" },
+  { name: "Kiribati", continent: "Oceania" },
+  { name: "Marshall Islands", continent: "Oceania" },
+  { name: "Nauru", continent: "Oceania" },
+  { name: "Papua New Guinea", continent: "Oceania" },
+];
 
 const countryCodes = [
   "AF", "DZ", "AO", "BJ", "BW",  // Africa
   "AL", "AM", "AZ", "BH", "BY",  // Europe
   "AR", "BO", "BR", "EC", "CO",  // South America
-  "AU", "BN", "KH", "ID", "LA",  // Asia
+  "LB", "BN", "KH", "ID", "LA",  // Asia
   "CA", "CU", "MX", "US", "HT",  // North America
   "FJ", "KI", "MH", "NR", "PG",  // Oceania
 ];
@@ -43,7 +67,11 @@ const countryCodes = [
   const pullutionSlice = createSlice({
     name: 'GET',
     initialState,
-    reducers: {},
+    reducers: {
+      setSelectedContinent(state, action) {
+        state.selectedContinent = action.payload
+      },
+    },
     extraReducers: (builder) => {
       builder
         .addCase(getValues.pending, (state) => {
@@ -52,9 +80,9 @@ const countryCodes = [
         .addCase(getValues.fulfilled, (state, { payload }) => {
           state.isLoading = false;
           state.countries = payload.map((x, index) => {
-            return {...x, Name: countryName[index]}
+            return {...x, Name: countryData[index].name, Continent: countryData[index].continent}
           });
-          console.log(state.countries)
+          
         })
         .addCase(getValues.rejected, (state, action) => {
           console.log(action);
@@ -63,5 +91,7 @@ const countryCodes = [
     },
   });
   
+  
+export const { setSelectedContinent } = pullutionSlice.actions
   export default pullutionSlice;
 

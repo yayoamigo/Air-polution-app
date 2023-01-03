@@ -9,6 +9,7 @@ import Countries from '../Components/Countries';
 export const HomePage = () => {
  const countriesArr = useSelector((state) => state.countries.countries);
  const isLoading = useSelector((state) => state.countries.isLoading);
+ const selectedContinent = useSelector((state) => state.countries.selectedContinent)
  const { length} = countriesArr;
  const dispatch = useDispatch();
  useEffect(() => {
@@ -16,6 +17,10 @@ export const HomePage = () => {
    dispatch(getValues())
   }
  }, [dispatch]);
+
+ const filteredCountries = countriesArr.filter((country) => {
+  return country.Continent === selectedContinent
+})
 
   return (
    <div className='App'>
@@ -27,10 +32,11 @@ export const HomePage = () => {
    {isLoading ? (
   <p>Is loading</p>
 ) : (
-  countriesArr.map((country)=>(
+  filteredCountries.map((country)=>(
     <Countries
     name = {country.Name}
     aqi = {country.list[0].main.aqi}
+    continent = {country.Continent}
     />
   ))
 )}
