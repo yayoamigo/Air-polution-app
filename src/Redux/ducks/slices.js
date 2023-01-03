@@ -2,7 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = { countries:[], isLoading: true,}
 
-const URL = 'http://api.openweathermap.org/data/2.5/air_pollution?lat=50&lon=50&appid=0df32c5e49f9d686cc8ef9751ef93899';
+const Ecuador = {lat:-3.48444, lon:-80.2257543,}
+
+const URL = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${Ecuador.lat}&lon=${Ecuador.lon}&appid=0df32c5e49f9d686cc8ef9751ef93899`;
 
 export const getValues = createAsyncThunk('GET/fetchCountries', async () => {
  try{ const response = await fetch(URL);

@@ -8,6 +8,7 @@ import { getValues } from '../Redux/ducks/slices';
 
 export const HomePage = () => {
  const countriesArr = useSelector((state) => state.countries.countries);
+ const isLoading = useSelector((state) => state.countries.isLoading);
  const { length} = countriesArr;
  const dispatch = useDispatch();
  useEffect(() => {
@@ -23,8 +24,13 @@ export const HomePage = () => {
     <SearchBar />
     <FilterBy />
    </div>
-   <div>
-   <p> {countriesArr.list[0].dt}</p>
+   <div className='Box'>
+    <h3>Ecuador</h3>
+   {isLoading ? (
+  <p>Is loading</p>
+) : (
+  <p>{countriesArr.list[0].dt}</p>
+)}
    </div>
   </div>
   )

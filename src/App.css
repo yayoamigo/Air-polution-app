@@ -19,3 +19,8 @@ body {
  background-color: wheat;
  align-items: center;
 }
+
+.Box {
+ border: 1px solid white;
+ width: 20%;
+}
