@@ -1,0 +1,21 @@
+body {
+ background-color: blueviolet;
+}
+
+.navBar {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.filters {
+ display: flex;
+ justify-content: space-between;
+}
+
+.search {
+ display: flex;
+ border: 1px solid wheat;
+ background-color: wheat;
+ align-items: center;
+}
