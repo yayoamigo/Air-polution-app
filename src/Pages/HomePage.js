@@ -29,7 +29,7 @@ export const HomePage = () => {
    {isLoading ? (
   <p>Is loading</p>
 ) : (
-  <p>{countriesArr.list[0].dt}</p>
+  <p>done</p>
 )}
    </div>
   </div>
