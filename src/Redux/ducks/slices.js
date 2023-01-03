@@ -3,53 +3,50 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = { countries:[], isLoading: true, selectedContinent: 'Africa', }
 
 const countryData = [
-  { name: "Afghanistan", continent: "Africa" },
-  { name: "Algeria", continent: "Africa" },
-  { name: "Angola", continent: "Africa" },
-  { name: "Benin", continent: "Africa" },
-  { name: "Botswana", continent: "Africa" },
-  { name: "Albania", continent: "Europe" },
-  { name: "Armenia", continent: "Europe" },
-  { name: "Azerbaijan", continent: "Europe" },
-  { name: "Bahrain", continent: "Europe" },
-  { name: "Belarus", continent: "Europe" },
-  { name: "Argentina", continent: "South America" },
-  { name: "Bolivia", continent: "South America" },
-  { name: "Brazil", continent: "South America" },
-  { name: "Ecuador", continent: "South America" },
-  { name: "Colombia", continent: "South America" },
-  { name: "Lebanon", continent: "Asia" },
-  { name: "Brunei", continent: "Asia" },
-  { name: "Cambodia", continent: "Asia" },
-  { name: "Indonesia", continent: "Asia" },
-  { name: "Laos", continent: "Asia" },
-  { name: "Canada", continent: "North America" },
-  { name: "Cuba", continent: "North America" },
-  { name: "Mexico", continent: "North America" },
-  { name: "United States", continent: "North America" },
-  { name: "Haiti", continent: "North America" },
-  { name: "Fiji", continent: "Oceania" },
-  { name: "Kiribati", continent: "Oceania" },
-  { name: "Marshall Islands", continent: "Oceania" },
-  { name: "Nauru", continent: "Oceania" },
-  { name: "Papua New Guinea", continent: "Oceania" },
-];
-
-const countryCodes = [
-  "AF", "DZ", "AO", "BJ", "BW",  // Africa
-  "AL", "AM", "AZ", "BH", "BY",  // Europe
-  "AR", "BO", "BR", "EC", "CO",  // South America
-  "LB", "BN", "KH", "ID", "LA",  // Asia
-  "CA", "CU", "MX", "US", "HT",  // North America
-  "FJ", "KI", "MH", "NR", "PG",  // Oceania
+  { name: "Afghanistan", continent: "Africa", code: "AF" },
+  { name: "Algeria", continent: "Africa", code: "DZ" },
+  { name: "Angola", continent: "Africa", code: "AO" },
+  { name: "Benin", continent: "Africa", code: "BJ" },
+  { name: "Botswana", continent: "Africa", code: "BW" },
+  { name: "Niger", continent: "Africa", code: "NE" },
+  { name: "Albania", continent: "Europe", code: "AL" },
+  { name: "Armenia", continent: "Europe", code: "AM" },
+  { name: "Azerbaijan", continent: "Europe", code: "AZ" },
+  { name: "Bahrain", continent: "Europe", code: "BH" },
+  { name: "Belarus", continent: "Europe", code: "BY" },
+  { name: "Bulgaria", continent: "Europe", code: "BG" },
+  { name: "Argentina", continent: "South America", code: "AR" },
+  { name: "Bolivia", continent: "South America", code: "BO" },
+  { name: "Brazil", continent: "South America", code: "BR" },
+  { name: "Ecuador", continent: "South America", code: "EC" },
+  { name: "Colombia", continent: "South America", code: "CO" },
+  { name: "Chile", continent: "South America", code: "CL" },
+  { name: "Lebanon", continent: "Asia", code: "LB" },
+  { name: "Brunei", continent: "Asia", code: "BN" },
+  { name: "Cambodia", continent: "Asia", code: "KH" },
+  { name: "Indonesia", continent: "Asia", code: "ID" },
+  { name: "Laos", continent: "Asia", code: "LA" },
+  { name: "Philippines", continent: "Asia", code: "PH" },
+  { name: "Canada", continent: "North America", code: "CA" },
+  { name: "Cuba", continent: "North America", code: "CU" },
+  { name: "Mexico", continent: "North America", code: "MX" },
+  { name: "United States", continent: "North America", code: "US" },
+  { name: "Haiti", continent: "North America", code: "HT" },
+  { name: "Jamaica", continent: "North America", code: "JM" },
+  { name: "Fiji", continent: "Oceania", code: "FJ" },
+  { name: "Kiribati", continent: "Oceania", code: "KI" },
+  { name: "Marshall Islands", continent: "Oceania", code: "MH" },
+  { name: "Nauru", continent: "Oceania", code: "NR" },
+  { name: "Papua New Guinea", continent: "Oceania", code: "PG" },
+  { name: "French Polynesia", continent: "Oceania", code: "PF" },
 ];
 
 
   export const getValues = createAsyncThunk('GET/fetchCountries', async () => {
     const countries = [];
-    for (const code of countryCodes) {
+    for (let i = 0; i< countryData.length; i++) {
       try {
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${code}&limit=1&appid=0df32c5e49f9d686cc8ef9751ef93899`);
+        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${countryData[i].code}&limit=1&appid=0df32c5e49f9d686cc8ef9751ef93899`);
         const data = await response.json();
         const lat = data[0].lat;
         const lon = data[0].lon;

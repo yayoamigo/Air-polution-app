@@ -28,6 +28,7 @@ body {
  align-items: center;
  justify-content: center;
  background-color: azure;
+ gap: 80px;
 }
 
 .Box {
@@ -37,9 +38,9 @@ body {
  margin-top: 10px;
 }
 
-@media (max-width: 380px) {
+/* @media (max-width: 380px) {
  .Box{
   grid-template-rows: repeat(3, auto);
  }
-}
+} */
 
