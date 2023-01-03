@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {BsFillMicFill, BsGearFill} from 'react-icons/bs';
+import {FiArrowLeft} from 'react-icons/fi';
 
 
 export const Nav = () => {
@@ -10,7 +11,7 @@ export const Nav = () => {
      <nav className='navBar'>
       <button type='button'>
        <Link className="link" to="/"> 
-        <i class="fa-solid fa-less-than"></i>
+        <FiArrowLeft/>
        </Link>  
       </button>
       <h1> Air polution app</h1>

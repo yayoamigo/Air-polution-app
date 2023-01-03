@@ -1,15 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const initialState = { countries:[], isLoading: true, codes:[
-  "AF", "DZ", "AO", "BJ", "BW",  // Africa
-  "AL", "AM", "AZ", "BH", "BY",  // Europe
-  "AR", "BO", "BR", "EC", "CO",  // South America
-  "AU", "BN", "KH", "ID", "LA",  // Asia
-  "CA", "CU", "MX", "US", "HT",  // North America
-  "FJ", "KI", "MH", "NR", "PG",  // Oceania
-], }
+const initialState = { countries:[], isLoading: true, }
 
-export const countryCodes = [
+const countryName = [
+  "Afghanistan", "Algeria", "Angola", "Benin", "Botswana", // Africa
+  "Albania", "Armenia", "Azerbaijan", "Bahrain", "Belarus", // Europe
+  "Argentina", "Bolivia", "Brazil", "Ecuador", "Colombia", // South America
+  "Australia", "Brunei", "Cambodia", "Indonesia", "Laos", // Asia
+  "Canada", "Cuba", "Mexico", "United States", "Haiti", // North America
+  "Fiji", "Kiribati", "Marshall Islands", "Nauru", "Papua New Guinea" // Oceania
+  ]
+
+const countryCodes = [
   "AF", "DZ", "AO", "BJ", "BW",  // Africa
   "AL", "AM", "AZ", "BH", "BY",  // Europe
   "AR", "BO", "BR", "EC", "CO",  // South America
@@ -49,8 +51,10 @@ export const countryCodes = [
         })
         .addCase(getValues.fulfilled, (state, { payload }) => {
           state.isLoading = false;
-          state.countries = payload;
-          console.log(state.countries);
+          state.countries = payload.map((x, index) => {
+            return {...x, Name: countryName[index]}
+          });
+          console.log(state.countries)
         })
         .addCase(getValues.rejected, (state, action) => {
           console.log(action);
