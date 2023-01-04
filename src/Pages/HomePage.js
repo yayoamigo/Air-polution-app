@@ -4,6 +4,7 @@ import { FilterBy } from '../Components/FilterBy';
 import { useSelector, useDispatch } from 'react-redux';
 import { getValues } from '../Redux/ducks/slices';
 import Countries from '../Components/Countries';
+import Search from '../Components/Search';
 
 
 export const HomePage = () => {
@@ -26,6 +27,7 @@ export const HomePage = () => {
    <div className='App'>
    <Nav/>
    <div className='filters'>
+    <Search/>
     <FilterBy />
    </div>
    <div className='Box'>

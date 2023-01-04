@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const initialState = { countries:[], isLoading: true, selectedContinent: 'Africa', }
+const initialState = { countries:[], isLoading: true, selectedContinent: 'Africa', search:"" }
 
 const countryData = [
   { name: "Afghanistan", continent: "Africa", code: "AF" },
@@ -68,6 +68,9 @@ const countryData = [
       setSelectedContinent(state, action) {
         state.selectedContinent = action.payload
       },
+      setSearch(state,action){
+        state.search = action.payload
+      }
     },
     extraReducers: (builder) => {
       builder
@@ -89,6 +92,6 @@ const countryData = [
   });
   
   
-export const { setSelectedContinent } = pullutionSlice.actions
+export const { setSelectedContinent, setSearch } = pullutionSlice.actions
   export default pullutionSlice;
 
