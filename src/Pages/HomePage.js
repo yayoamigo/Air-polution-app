@@ -36,6 +36,7 @@ export const HomePage = () => {
 ) : (
   filteredCountries.map((country)=>(
     <Countries
+    key={country.Name}
     name = {country.Name}
     aqi = {country.list[0].main.aqi}
     continent = {country.Continent}
