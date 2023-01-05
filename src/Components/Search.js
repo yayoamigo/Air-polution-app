@@ -1,28 +1,27 @@
-import React from 'react';
-import { setSearch } from '../Redux/ducks/slices';
+import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRef } from 'react';
-
+import { setSearch } from '../Redux/ducks/slices';
 
 const Search = () => {
-    const search = useSelector((state) => state.countries.search)
-    const dispatch = useDispatch();
-    const Input = useRef("")
-    const handleSearch = () => {
-    dispatch(setSearch(Input.current.value))
-    }
-    console.log(search)
+  const search = useSelector((state) => state.countries.search);
+  const dispatch = useDispatch();
+  const Input = useRef('');
+  const handleSearch = () => {
+    dispatch(setSearch(Input.current.value));
+  };
+
   return (
-    <div className='searchdiv'>
-        <input className='input'
+    <div className="searchdiv">
+      <input
+        className="input"
         ref={Input}
         type="text"
-        placeholder='search...'
+        placeholder="search..."
         onChange={handleSearch}
         value={search}
-        />
+      />
     </div>
-  )
-}
+  );
+};
 
 export default Search;
