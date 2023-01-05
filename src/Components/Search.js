@@ -13,8 +13,8 @@ const Search = () => {
     }
     console.log(search)
   return (
-    <div>
-        <input
+    <div className='searchdiv'>
+        <input className='input'
         ref={Input}
         type="text"
         placeholder='search...'
