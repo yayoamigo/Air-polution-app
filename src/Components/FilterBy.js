@@ -12,6 +12,7 @@ export const FilterBy = () => {
 
   return (
     <select value={selected} onChange={handleChange}>
+      <option className='' value="All"> All</option>
       <option className='' value="Africa"> Africa</option>
       <option className='' value="Europe"> Europe</option>
       <option className='' value="North America"> North America</option>

@@ -4,7 +4,7 @@ import {BsFillMicFill, BsGearFill} from 'react-icons/bs';
 import {FiArrowLeft} from 'react-icons/fi';
 
 
-export const Nav = () => {
+const Nav = () => {
 
   return (
     <header>
@@ -23,3 +23,5 @@ export const Nav = () => {
     </header>
   )
 }
+
+export default Nav;

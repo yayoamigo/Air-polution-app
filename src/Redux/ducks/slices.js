@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const initialState = { countries:[], isLoading: true, selectedContinent: 'Africa', search:"" }
+const initialState = { countries:[], isLoading: true, selectedContinent: 'All', search:"" }
 
 const countryData = [
   { name: "Afghanistan", continent: "Africa", code: "AF" },
