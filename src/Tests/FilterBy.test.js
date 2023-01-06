@@ -1,14 +1,14 @@
 import { Provider } from 'react-redux';
 import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
-import HomePage from '../Pages/HomePage';
+import FilterBy from '../Components/FilterBy';
 import store from '../Redux/configureStore';
 
 it('render', () => {
   const tree = renderer
     .create(
       <Provider store={store}>
-        <HomePage />
+        <FilterBy />
       </Provider>,
     )
     .toJSON();
