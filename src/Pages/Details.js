@@ -7,7 +7,7 @@ const Details = () => {
   const countriesArr = useSelector((state) => state.countries.countries);
   const isLoading = useSelector((state) => state.countries.isLoading);
   const filterCountry = countriesArr.filter((country) => country.Name === name);
-  const components  = filterCountry[0].list[0].components;
+  const { components } = filterCountry[0].list[0];
 
   return (
     <div>

@@ -1,33 +1,30 @@
-import pullutionSlice from "../Redux/ducks/slices";
-import { getValues } from "../Redux/ducks/slices"; 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import pullutionSlice, { getValues } from '../Redux/ducks/slices';
 
 describe('polutionSlice', () => {
-    it('should handle the getValues.fulfilled action', () => {
-      // Define the initial state and the payload of the action
-      const initialState = {
-        countries: [], isLoading: true, selectedContinent: 'All', search: '',
-      };
-      const payload = [{
-        "coord":[
-          50,
-          50
-        ]
-        }];
-  
-      // Dispatch the action
-      const state = pullutionSlice.reducer(initialState, {
-        type: getValues.fulfilled.type,
-        payload,
-      });
-  
-      // Assert that the state was correctly updated
-      expect(state.countries).toEqual([{...payload[0],Continent:"Africa",Name:"Afghanistan"}]);
+  it('should handle the getValues.fulfilled action', () => {
+    // Define the initial state and the payload of the action
+    const initialState = {
+      countries: [], isLoading: true, selectedContinent: 'All', search: '',
+    };
+    const payload = [{
+      coord: [
+        50,
+        50,
+      ],
+    }];
+
+    // Dispatch the action
+    const state = pullutionSlice.reducer(initialState, {
+      type: getValues.fulfilled.type,
+      payload,
     });
+
+    // Assert that the state was correctly updated
+    expect(state.countries).toEqual([{ ...payload[0], Continent: 'Africa', Name: 'Afghanistan' }]);
   });
-
-
+});
 
 describe('getValues', () => {
   it('should dispatch the getValues.fulfilled action on success', async () => {
@@ -39,11 +36,11 @@ describe('getValues', () => {
     const response = {
       ok: true,
       json: () => Promise.resolve([{
-        "coord":[
+        coord: [
           50,
-          50
-        ]
-        }]),
+          50,
+        ],
+      }]),
     };
     // Set up the mock implementation of the fetch function
     global.fetch = jest.fn().mockImplementation(() => Promise.resolve(response));
@@ -54,16 +51,28 @@ describe('getValues', () => {
     // Assert that the store correctly dispatched the fulfilled action
     expect(store.getActions()).toEqual([
       { type: getValues.pending.type, meta: { arg: undefined, requestId: expect.any(String), requestStatus: 'pending' } },
-      { type: getValues.fulfilled.type, meta: { arg: undefined, requestId: expect.any(String), requestStatus: 'fulfilled' }, payload: [[{"coord": [50, 50]}], 
-      [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], 
-      [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}],
-       [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}],
-        [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}],
-         [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}],
-          [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}],
-           [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], 
-           [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], [{"coord": [50, 50]}], 
-           [{"coord": [50, 50]}], [{"coord": [50, 50]}]] },
+      {
+        type: getValues.fulfilled.type,
+        meta: { arg: undefined, requestId: expect.any(String), requestStatus: 'fulfilled' },
+        payload: [[{ coord: [50, 50] }],
+          [{ coord: [50, 50] }], [{ coord: [50, 50] }], [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }], [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }], [{ coord: [50, 50] }], [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }], [{ coord: [50, 50] }], [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }], [{ coord: [50, 50] }], [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }], [{ coord: [50, 50] }], [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }], [{ coord: [50, 50] }], [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }], [{ coord: [50, 50] }], [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }], [{ coord: [50, 50] }], [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }],
+          [{ coord: [50, 50] }], [{ coord: [50, 50] }]],
+      },
     ]);
   });
 });

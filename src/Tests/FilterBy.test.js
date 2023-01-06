@@ -14,5 +14,3 @@ it('render', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-

@@ -1,20 +1,19 @@
 import { Provider } from 'react-redux';
 import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
-import Nav from '../Components/Nav';
-import store from '../redux/configureStore';
 import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-
+import Nav from '../Components/Nav';
+import store from '../redux/configureStore';
 
 it('render', () => {
   const tree = renderer
     .create(
-    <Router>
+      <Router>
         <Provider store={store}>
           <Nav />
         </Provider>
-    </Router>
+      </Router>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -23,10 +22,10 @@ it('render', () => {
 test('renders content', () => {
   const component = render(
     <Router>
-    <Provider store={store}>
-      <Nav/>
-    </Provider>
-    </Router>
+      <Provider store={store}>
+        <Nav />
+      </Provider>
+    </Router>,
   );
   expect(component.container).toHaveTextContent('Air polution app');
 });
