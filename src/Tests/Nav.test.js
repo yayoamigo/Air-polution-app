@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Nav from '../Components/Nav';
-import store from '../redux/configureStore';
+import store from '../Redux/configureStore';
 
 it('render', () => {
   const tree = renderer

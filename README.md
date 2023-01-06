@@ -150,7 +150,8 @@ If you like this project please give it a star 😁🌟✨
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to thank Microverse for the project UI.
+-I would like to thank Microverse for the project UI.
+-I would like to thank Nelson Sakwa on Behance for the Original design idea.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
