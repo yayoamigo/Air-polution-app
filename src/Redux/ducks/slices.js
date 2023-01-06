@@ -48,12 +48,12 @@ export const getValues = createAsyncThunk('GET/fetchCountries', async () => {
   /* eslint-disable no-await-in-loop */
   for (let i = 0; i < countryData.length; i += 1) {
     try {
-      const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${countryData[i].code}&limit=1&appid=0df32c5e49f9d686cc8ef9751ef93899`);
+      const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${countryData[i].code}&limit=1&appid=0df32c5e49f9d686cc8ef9751ef93899`);
       const data = await response.json();
       const { lat } = data[0];
       const { lon } = data[0];
 
-      const pollutionResponse = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=0df32c5e49f9d686cc8ef9751ef93899`);
+      const pollutionResponse = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=0df32c5e49f9d686cc8ef9751ef93899`);
       const pollutionData = await pollutionResponse.json();
       countries.push(pollutionData);
       /* eslint-enable no-await-in-loop */
