@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="filters"
+  >
+    <div
+      className="searchdiv"
+    >
+      <input
+        className="input"
+        onChange={[Function]}
+        placeholder="search..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="filterDiv"
+    >
+      <p
+        className="filterTitle"
+      >
+        Filter by continent
+      </p>
+      <select
+        className="selectdiv"
+        onChange={[Function]}
+        value="All"
+      >
+        <option
+          className="select"
+          value="All"
+        >
+           All
+        </option>
+        <option
+          className="select"
+          value="Africa"
+        >
+           Africa
+        </option>
+        <option
+          className="select"
+          value="Europe"
+        >
+           Europe
+        </option>
+        <option
+          className="select"
+          value="North America"
+        >
+           North America
+        </option>
+        <option
+          className="select"
+          value="Asia"
+        >
+           Asia
+        </option>
+        <option
+          className="select"
+          value="South America"
+        >
+           South America
+        </option>
+        <option
+          className="select"
+          value="Oceania"
+        >
+           Oceania
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    className="Box"
+  >
+    <div
+      className="loading-container"
+    >
+      <div
+        className="loading-wheel"
+      />
+      <p
+        className="loading-text"
+      >
+        Please wait
+      </p>
+    </div>
+  </div>
+</div>
+`;
