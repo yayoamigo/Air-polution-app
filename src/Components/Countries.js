@@ -17,7 +17,7 @@ const Countries = ({ name, aqi }) => (
 
 Countries.propTypes = {
   name: PropTypes.string.isRequired,
-  aqi: PropTypes.string.isRequired,
+  aqi: PropTypes.number.isRequired,
 };
 
 export default Countries;

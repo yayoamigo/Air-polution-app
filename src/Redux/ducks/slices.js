@@ -58,7 +58,7 @@ export const getValues = createAsyncThunk('GET/fetchCountries', async () => {
       countries.push(pollutionData);
       /* eslint-enable no-await-in-loop */
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   }
   return countries;
