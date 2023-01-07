@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render 1`] = `
+<div
+  className="countries"
+>
+  <h2>
+    Niger
+  </h2>
+  <p>
+    Air quality :
+    2
+  </p>
+  <a
+    href="/country/Niger"
+    onClick={[Function]}
+  >
+    <button
+      type="button"
+    >
+      more...
+    </button>
+  </a>
+</div>
+`;
